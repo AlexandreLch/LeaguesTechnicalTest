@@ -9,13 +9,21 @@
 /* Begin PBXBuildFile section */
 		66834DA72944B29B007F65AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66834DA62944B29B007F65AC /* AppDelegate.swift */; };
 		66834DA92944B29B007F65AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66834DA82944B29B007F65AC /* SceneDelegate.swift */; };
-		66834DAB2944B29B007F65AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66834DAA2944B29B007F65AC /* ViewController.swift */; };
-		66834DAE2944B29B007F65AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66834DAC2944B29B007F65AC /* Main.storyboard */; };
+		66834DAB2944B29B007F65AC /* LeaguesSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66834DAA2944B29B007F65AC /* LeaguesSearchViewController.swift */; };
 		66834DB02944B29C007F65AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66834DAF2944B29C007F65AC /* Assets.xcassets */; };
 		66834DB32944B29C007F65AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66834DB12944B29C007F65AC /* LaunchScreen.storyboard */; };
 		66834DBE2944B29C007F65AC /* LeaguesTechnicalTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66834DBD2944B29C007F65AC /* LeaguesTechnicalTestTests.swift */; };
 		66834DC82944B29C007F65AC /* LeaguesTechnicalTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66834DC72944B29C007F65AC /* LeaguesTechnicalTestUITests.swift */; };
 		66834DCA2944B29C007F65AC /* LeaguesTechnicalTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66834DC92944B29C007F65AC /* LeaguesTechnicalTestUITestsLaunchTests.swift */; };
+		66834DD82944C5CC007F65AC /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66834DD72944C5CC007F65AC /* APIService.swift */; };
+		66834DDA2944C890007F65AC /* LeaguesSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66834DD92944C890007F65AC /* LeaguesSearchViewModel.swift */; };
+		66834DDD2944C9F6007F65AC /* LeagueModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66834DDC2944C9F6007F65AC /* LeagueModels.swift */; };
+		66834DE12945782F007F65AC /* FilteredLeagueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66834DE02945782F007F65AC /* FilteredLeagueCell.swift */; };
+		66834DE429457A2F007F65AC /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66834DE329457A2F007F65AC /* UITableViewExtension.swift */; };
+		66834DE629458E56007F65AC /* LeagueTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66834DE529458E56007F65AC /* LeagueTeamCell.swift */; };
+		66834DE929458F21007F65AC /* ImageDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66834DE829458F21007F65AC /* ImageDownloadManager.swift */; };
+		66834DEB29458FCC007F65AC /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66834DEA29458FCC007F65AC /* UICollectionViewExtension.swift */; };
+		66834DED294591DC007F65AC /* LeagueTeamCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66834DEC294591DC007F65AC /* LeagueTeamCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +47,7 @@
 		66834DA32944B29B007F65AC /* LeaguesTechnicalTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeaguesTechnicalTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66834DA62944B29B007F65AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66834DA82944B29B007F65AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		66834DAA2944B29B007F65AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		66834DAD2944B29B007F65AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		66834DAA2944B29B007F65AC /* LeaguesSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesSearchViewController.swift; sourceTree = "<group>"; };
 		66834DAF2944B29C007F65AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66834DB22944B29C007F65AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66834DB42944B29C007F65AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +56,15 @@
 		66834DC32944B29C007F65AC /* LeaguesTechnicalTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeaguesTechnicalTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66834DC72944B29C007F65AC /* LeaguesTechnicalTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesTechnicalTestUITests.swift; sourceTree = "<group>"; };
 		66834DC92944B29C007F65AC /* LeaguesTechnicalTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesTechnicalTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		66834DD72944C5CC007F65AC /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		66834DD92944C890007F65AC /* LeaguesSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesSearchViewModel.swift; sourceTree = "<group>"; };
+		66834DDC2944C9F6007F65AC /* LeagueModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueModels.swift; sourceTree = "<group>"; };
+		66834DE02945782F007F65AC /* FilteredLeagueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredLeagueCell.swift; sourceTree = "<group>"; };
+		66834DE329457A2F007F65AC /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		66834DE529458E56007F65AC /* LeagueTeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueTeamCell.swift; sourceTree = "<group>"; };
+		66834DE829458F21007F65AC /* ImageDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadManager.swift; sourceTree = "<group>"; };
+		66834DEA29458FCC007F65AC /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
+		66834DEC294591DC007F65AC /* LeagueTeamCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueTeamCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +115,13 @@
 		66834DA52944B29B007F65AC /* LeaguesTechnicalTest */ = {
 			isa = PBXGroup;
 			children = (
-				66834DA62944B29B007F65AC /* AppDelegate.swift */,
-				66834DA82944B29B007F65AC /* SceneDelegate.swift */,
-				66834DAA2944B29B007F65AC /* ViewController.swift */,
-				66834DAC2944B29B007F65AC /* Main.storyboard */,
+				66834DE729458F0F007F65AC /* Utils */,
+				66834DE229457A21007F65AC /* Extension */,
+				66834DDB2944C8A0007F65AC /* App */,
+				66834DD62944C5B3007F65AC /* APIClient */,
 				66834DAF2944B29C007F65AC /* Assets.xcassets */,
-				66834DB12944B29C007F65AC /* LaunchScreen.storyboard */,
 				66834DB42944B29C007F65AC /* Info.plist */,
+				66834DDC2944C9F6007F65AC /* LeagueModels.swift */,
 			);
 			path = LeaguesTechnicalTest;
 			sourceTree = "<group>";
@@ -125,6 +141,46 @@
 				66834DC92944B29C007F65AC /* LeaguesTechnicalTestUITestsLaunchTests.swift */,
 			);
 			path = LeaguesTechnicalTestUITests;
+			sourceTree = "<group>";
+		};
+		66834DD62944C5B3007F65AC /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				66834DD72944C5CC007F65AC /* APIService.swift */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
+		66834DDB2944C8A0007F65AC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				66834DB12944B29C007F65AC /* LaunchScreen.storyboard */,
+				66834DA62944B29B007F65AC /* AppDelegate.swift */,
+				66834DA82944B29B007F65AC /* SceneDelegate.swift */,
+				66834DAA2944B29B007F65AC /* LeaguesSearchViewController.swift */,
+				66834DD92944C890007F65AC /* LeaguesSearchViewModel.swift */,
+				66834DE02945782F007F65AC /* FilteredLeagueCell.swift */,
+				66834DE529458E56007F65AC /* LeagueTeamCell.swift */,
+				66834DEC294591DC007F65AC /* LeagueTeamCellViewModel.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		66834DE229457A21007F65AC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				66834DE329457A2F007F65AC /* UITableViewExtension.swift */,
+				66834DEA29458FCC007F65AC /* UICollectionViewExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		66834DE729458F0F007F65AC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				66834DE829458F21007F65AC /* ImageDownloadManager.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +289,6 @@
 			files = (
 				66834DB32944B29C007F65AC /* LaunchScreen.storyboard in Resources */,
 				66834DB02944B29C007F65AC /* Assets.xcassets in Resources */,
-				66834DAE2944B29B007F65AC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +313,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66834DAB2944B29B007F65AC /* ViewController.swift in Sources */,
+				66834DEB29458FCC007F65AC /* UICollectionViewExtension.swift in Sources */,
+				66834DDD2944C9F6007F65AC /* LeagueModels.swift in Sources */,
+				66834DAB2944B29B007F65AC /* LeaguesSearchViewController.swift in Sources */,
+				66834DE12945782F007F65AC /* FilteredLeagueCell.swift in Sources */,
+				66834DE929458F21007F65AC /* ImageDownloadManager.swift in Sources */,
+				66834DE429457A2F007F65AC /* UITableViewExtension.swift in Sources */,
 				66834DA72944B29B007F65AC /* AppDelegate.swift in Sources */,
+				66834DDA2944C890007F65AC /* LeaguesSearchViewModel.swift in Sources */,
+				66834DE629458E56007F65AC /* LeagueTeamCell.swift in Sources */,
+				66834DD82944C5CC007F65AC /* APIService.swift in Sources */,
+				66834DED294591DC007F65AC /* LeagueTeamCellViewModel.swift in Sources */,
 				66834DA92944B29B007F65AC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,14 +361,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		66834DAC2944B29B007F65AC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				66834DAD2944B29B007F65AC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		66834DB12944B29C007F65AC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -442,9 +498,10 @@
 				INFOPLIST_FILE = LeaguesTechnicalTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -452,9 +509,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexandrelellouche.LeaguesTechnicalTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -470,9 +530,10 @@
 				INFOPLIST_FILE = LeaguesTechnicalTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,9 +541,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexandrelellouche.LeaguesTechnicalTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
