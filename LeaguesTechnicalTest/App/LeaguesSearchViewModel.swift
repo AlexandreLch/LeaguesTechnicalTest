@@ -11,10 +11,12 @@ import Combine
 protocol LeaguesSearchViewModelType {
     var displayedFilteredLeagues: CurrentValueSubject<[String], Never> { get }
     var teams: CurrentValueSubject<[Team], Never> { get }
+    var teamDetail: CurrentValueSubject<Team?, Never> { get }
     
     func updateTeamsByLeague(league: String)
     func updateTableViewData(with filter: String)
     func resetTableViewData()
+    func shouldShowTeam(at index: Int, completion: @escaping ((Team?) -> Void))
 }
 
 class LeaguesSearchViewModel: LeaguesSearchViewModelType {
@@ -23,6 +25,7 @@ class LeaguesSearchViewModel: LeaguesSearchViewModelType {
     private var availableLeagueSearchFilter: [String] = []
     var displayedFilteredLeagues = CurrentValueSubject<[String], Never>([])
     var teams = CurrentValueSubject<[Team], Never>([])
+    var teamDetail = CurrentValueSubject<Team?, Never>(nil)
     
     init(leagueManager: LeagueManagerType) {
         self.leagueManager = leagueManager
@@ -37,6 +40,16 @@ class LeaguesSearchViewModel: LeaguesSearchViewModelType {
                 if !self.availableLeagueSearchFilter.contains($0.strLeague) {
                     self.availableLeagueSearchFilter.append($0.strLeague)
                 }
+            }
+        } failure: { error in
+            print(error)
+        }
+    }
+    
+    func shouldShowTeam(at index: Int, completion: @escaping ((Team?) -> Void)) {
+        self.leagueManager.featchTeamDetail(params: self.teams.value[index].strTeam) { teams in
+            DispatchQueue.main.async {
+                completion(teams.first)
             }
         } failure: { error in
             print(error)

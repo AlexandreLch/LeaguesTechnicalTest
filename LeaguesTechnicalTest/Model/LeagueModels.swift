@@ -33,7 +33,7 @@ class LeagueManager: LeagueManagerType {
 
     func featchTeamDetail(params: String, success: @escaping (([Team]) -> Void), failure: @escaping ((String) -> Void)) {
         APIService.instance.getTeamDetail(params: params) { response in
-            print(response.teams)
+            success(response.teams)
         } failure: { error in
             print(error)
         }
@@ -59,6 +59,6 @@ struct Team: Decodable {
     let strTeamBanner: String?
     let strCountry: String
     let strLeague: String
-    let strDescriptionEN: String
+    let strDescriptionEN: String?
     let strTeamBadge: String
 }

@@ -219,6 +219,14 @@ extension LeaguesSearchViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.reloadData()
+        self.viewModel.shouldShowTeam(at: indexPath.row) { [weak self] team in
+            guard let self = self else { return }
+            guard let team = team else { return }
+            self.hideTeamCollectionView()
+            let vm = TeamDetailViewModel(team: team, imageDownloadManager: ImageDownloadManager())
+            let vc = TeamDetailViewController(viewModel: vm)
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

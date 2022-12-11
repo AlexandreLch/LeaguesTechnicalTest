@@ -60,7 +60,9 @@ class APIService {
     }
     
     func getTeamDetail(params: String, success: @escaping ((TeamsLeagueResponse) -> Void), failure: @escaping ((String) -> Void)) {
-        self.baseRequest(route: .teamDetail, params: params) { data in
+        let cleanedParams = params.replacingOccurrences(of: " ", with: "%20")
+        let fullParams = "?t=\(cleanedParams)"
+        self.baseRequest(route: .teamDetail, params: fullParams) { data in
             do {
                 let jsonDecoder = JSONDecoder()
                 let response = try jsonDecoder.decode(TeamsLeagueResponse.self, from: data)

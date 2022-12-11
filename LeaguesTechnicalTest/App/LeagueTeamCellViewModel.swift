@@ -27,7 +27,7 @@ class LeagueTeamCellViewModel: LeagueTeamCellViewModelType {
     
     private func getImage(url: String) {
         guard let url = URL(string: url) else { return }
-        self.imageDownloadManager.imageWith(url) { [weak self] image in
+        ImageDownloadManager.shared.imageWith(url) { [weak self] image in
             guard let self = self else { return }
             self.image.send(image)
         }
