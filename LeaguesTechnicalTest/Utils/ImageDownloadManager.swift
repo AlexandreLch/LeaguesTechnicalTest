@@ -38,8 +38,6 @@ class ImageDownloadManager {
         completion(image)
     }
     
-    static let shared = ImageDownloadManager()
-    
     // MARK: Public methods
     
     ///  Clear image on RAM and on the file system

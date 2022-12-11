@@ -30,6 +30,7 @@ class LeaguesSearchViewModel: LeaguesSearchViewModelType {
     // MARK: Private properties
     private var leagues: [League] = []
     private let leagueManager: LeagueManagerType
+    private let imageDownloadManager: ImageDownloadManager
     private var availableLeagueSearchFilter: [String] = []
     private var subscriptions = Set<AnyCancellable>()
     
@@ -41,8 +42,9 @@ class LeaguesSearchViewModel: LeaguesSearchViewModelType {
     var shouldShowSpinner = CurrentValueSubject<Bool, Never>(false)
     
     // MARK: Life Cycle
-    init(leagueManager: LeagueManagerType) {
+    init(leagueManager: LeagueManagerType, imageDownloadManager: ImageDownloadManager) {
         self.leagueManager = leagueManager
+        self.imageDownloadManager = imageDownloadManager
         self.getAllLeague()
     }
     
@@ -75,7 +77,7 @@ class LeaguesSearchViewModel: LeaguesSearchViewModelType {
             self.downloadImages(index: index + 1)
             return
         }
-        ImageDownloadManager.shared.imageWith(url) { image in
+        self.imageDownloadManager.imageWith(url) { image in
             self.teamImages.value.append(image)
             self.downloadImages(index: index + 1)
         }

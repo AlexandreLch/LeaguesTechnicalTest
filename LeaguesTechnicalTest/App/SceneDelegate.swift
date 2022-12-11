@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let leagueSearchVm = LeaguesSearchViewModel(leagueManager: LeagueManager())
+        let leagueSearchVm = LeaguesSearchViewModel(leagueManager: LeagueManager(), imageDownloadManager: ImageDownloadManager())
         let leagueSearchViewController = LeaguesSearchViewController(viewModel: leagueSearchVm)
         let navigationController = UINavigationController(rootViewController: leagueSearchViewController)
         navigationController.setNavigationBarHidden(false, animated: false)
