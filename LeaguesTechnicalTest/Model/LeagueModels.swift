@@ -7,14 +7,17 @@
 
 import Foundation
 
+// MARK: - LeagueManagerType
 protocol LeagueManagerType {
     func fetchAllLeague(success: @escaping (([League]) -> Void), failure: @escaping ((String) -> Void))
     func fetchTeamsFromLeague(params: String, success: @escaping (([Team]) -> Void), failure: @escaping ((String) -> Void))
     func featchTeamDetail(params: String, success: @escaping (([Team]) -> Void), failure: @escaping ((String) -> Void))
 }
 
+// MARK: - LeagueManager
 class LeagueManager: LeagueManagerType {
     
+    // MARK: Public methods
     func fetchAllLeague(success: @escaping (([League]) -> Void), failure: @escaping ((String) -> Void)) {
         APIService.instance.getAllLeagues { response in
             success(response.leagues)
@@ -25,7 +28,11 @@ class LeagueManager: LeagueManagerType {
 
     func fetchTeamsFromLeague(params: String, success: @escaping (([Team]) -> Void), failure: @escaping ((String) -> Void)) {
         APIService.instance.getTeamsByLeague(params: params) { response in
-            success(response.teams)
+            guard let teams = response.teams else {
+                failure("no team found for this league")
+                return
+            }
+            success(teams)
         } failure: { error in
             print(error)
         }
@@ -33,26 +40,34 @@ class LeagueManager: LeagueManagerType {
 
     func featchTeamDetail(params: String, success: @escaping (([Team]) -> Void), failure: @escaping ((String) -> Void)) {
         APIService.instance.getTeamDetail(params: params) { response in
-            success(response.teams)
+            guard let teams = response.teams else {
+                failure("no team found for this league")
+                return
+            }
+            success(teams)
         } failure: { error in
             print(error)
         }
     }
 }
 
+// MARK: - AllLeaguesResponse
 struct AllLeaguesResponse: Decodable {
     let leagues: [League]
 }
 
+// MARK: - League
 struct League: Decodable {
     let idLeague: String
     let strLeague: String
 }
 
+// MARK: - TeamsLeagueResponse
 struct TeamsLeagueResponse: Decodable {
-    let teams: [Team]
+    let teams: [Team]?
 }
 
+// MARK: - Team
 struct Team: Decodable {
     let idTeam: String
     let strTeam: String
@@ -60,5 +75,5 @@ struct Team: Decodable {
     let strCountry: String
     let strLeague: String
     let strDescriptionEN: String?
-    let strTeamBadge: String
+    let strTeamBadge: String?
 }

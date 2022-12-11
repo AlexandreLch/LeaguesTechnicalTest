@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import Combine
 
+// MARK: - TeamDetailViewModelType
 protocol TeamDetailViewModelType {
     var title: String { get }
     var banner: CurrentValueSubject<UIImage?, Never> { get }
@@ -17,15 +18,21 @@ protocol TeamDetailViewModelType {
     var description: String { get }
 }
 
+// MARK: - TeamDetailViewModel
 class TeamDetailViewModel: TeamDetailViewModelType {
+    
+    // MARK: Private properties
     private let team: Team
     private let imageDownloadManager: ImageDownloadManager
+    
+    // MARK: Public properties
     var title: String
     var banner = CurrentValueSubject<UIImage?, Never>(nil)
     var country: String
     var league: String
     var description: String
     
+    // MARK: Life Cycle
     init(team: Team, imageDownloadManager: ImageDownloadManager) {
         self.team = team
         self.imageDownloadManager = imageDownloadManager
@@ -39,6 +46,7 @@ class TeamDetailViewModel: TeamDetailViewModelType {
         }
     }
     
+    // MARK: Private methods
     private func downloadBanner(with url: String) {
         guard let url = URL(string: url) else { return }
         self.imageDownloadManager.imageWith(url) { [weak self] image in

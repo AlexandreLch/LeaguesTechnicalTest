@@ -18,7 +18,10 @@ class APIService {
             urlString.append(params)
         }
         
-        if let url = URL(string: urlString) {
+        guard let formatedUrlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+              
+        
+        if let url = URL(string: formatedUrlString) {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
                     success(data)
@@ -44,8 +47,7 @@ class APIService {
     }
     
     func getTeamsByLeague(params: String, success: @escaping ((TeamsLeagueResponse) -> Void), failure: @escaping ((String) -> Void)) {
-        let cleanedParams = params.replacingOccurrences(of: " ", with: "%20")
-        let fullParams = "?l=\(cleanedParams)"
+        let fullParams = "?l=\(params)"
         self.baseRequest(route: .teamLeague, params: fullParams) { data in
             do {
                 let jsonDecoder = JSONDecoder()
@@ -60,8 +62,7 @@ class APIService {
     }
     
     func getTeamDetail(params: String, success: @escaping ((TeamsLeagueResponse) -> Void), failure: @escaping ((String) -> Void)) {
-        let cleanedParams = params.replacingOccurrences(of: " ", with: "%20")
-        let fullParams = "?t=\(cleanedParams)"
+        let fullParams = "?t=\(params)"
         self.baseRequest(route: .teamDetail, params: fullParams) { data in
             do {
                 let jsonDecoder = JSONDecoder()

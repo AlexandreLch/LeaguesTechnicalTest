@@ -7,14 +7,19 @@
 
 import UIKit
 
+// MARK: - FilteredLeagueCell
 class FilteredLeagueCell: UITableViewCell {
-
+    
+    // MARK: Private properties
     private let leagueTitle = UILabel()
     
+    
+    // MARK: Public methods
     func setContent(title: String) {
         self.leagueTitle.text = title
     }
     
+    // MARK: Private methods
     private func setupLayout() {
         self.backgroundColor = .clear
         self.leagueTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -30,6 +35,7 @@ class FilteredLeagueCell: UITableViewCell {
         NSLayoutConstraint.activate(constraints)
     }
     
+    // MARK: Life Cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupLayout()

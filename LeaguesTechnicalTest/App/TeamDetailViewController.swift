@@ -8,8 +8,10 @@
 import UIKit
 import Combine
 
+// MARK: - TeamDetailViewController
 class TeamDetailViewController: UIViewController {
     
+    // MARK: Private properties
     private let viewModel: TeamDetailViewModelType
     private var cancellables = Set<AnyCancellable>()
     private let scrollView = UIScrollView()
@@ -19,6 +21,7 @@ class TeamDetailViewController: UIViewController {
     private let leagueLabel = UILabel()
     private let teamDescriptionLabel = UILabel()
 
+    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +29,16 @@ class TeamDetailViewController: UIViewController {
         self.setup()
     }
     
+    init(viewModel: TeamDetailViewModelType) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: Private methods
     private func setupLayout() {
         self.scrollView.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -112,14 +125,5 @@ class TeamDetailViewController: UIViewController {
         self.setupViewModel()
         self.setupStyle()
         self.setupLayout()
-    }
-    
-    init(viewModel: TeamDetailViewModelType) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
